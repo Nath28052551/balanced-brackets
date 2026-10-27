@@ -58,8 +58,4 @@ java BalancedBrackets
 - Reading a compile error and tracing it back to the line that caused it, especially mismatched braces.
 - Checking what a loop does when it runs zero times (the empty string).
 - Why `return` statements need to sit after the loop, not inside it.
-
-## Possible next steps
-
-- Return the index of the first problem bracket instead of `true`/`false`.
-- Use `ArrayDeque` instead of the older `Stack` class.
+- Why ArrayDeque is preferred over the older Stack class.
