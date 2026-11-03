@@ -40,6 +40,9 @@ public class BalancedBrackets {
 		System.out.println(isBalanced(""));
 		System.out.println(isBalanced("if (a[i] > 0) { x = 1; }"));
 		System.out.println(isBalanced("if (a[i > 0) { }"));
+		System.out.println(firstMismatchIndex("([]{})"));   // -1
+		System.out.println(firstMismatchIndex("a(b]"));     // 3
+		System.out.println(firstMismatchIndex("{}[)(]"));   // 3
 
 	}
 	public static int firstMismatchIndex(String s) {
