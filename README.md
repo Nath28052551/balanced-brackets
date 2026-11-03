@@ -51,7 +51,25 @@ Or from a terminal:
 javac BalancedBrackets.java
 java BalancedBrackets
 ```
+## Finding the first mismatch
 
+`firstMismatchIndex(String s)` returns the position of the first problem,
+or -1 if the brackets are balanced.
+
+| Input    | Result | Why                                  |
+|----------|--------|--------------------------------------|
+| `([]{})` | -1     | balanced                             |
+| `(]`     | 1      | `]` does not match `(`               |
+| `)`      | 0      | closing bracket with nothing open    |
+| `a(b]`   | 3      | other characters still count for the index |
+| `(((`    | 0      | earliest bracket that was never closed |
+
+## Running the tests
+
+The project has JUnit 5 tests in `BalancedBracketsTest.java`.
+
+In Eclipse: right-click `BalancedBracketsTest.java`,
+then Run As > JUnit Test. All 16 tests should pass (green bar).
 ## What I learned
 
 - How a stack (last in, first out) fits problems where the most recent thing must be handled first.
