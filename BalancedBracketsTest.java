@@ -48,4 +48,38 @@ class BalancedBracketsTest {
     void ignoresCharactersButStillDetectsErrors() {
         assertFalse(BalancedBrackets.isBalanced("if (a[i > 0) { }"));
     }
+    @Test
+    void balancedReturnsMinusOne() {
+        assertEquals(-1, BalancedBrackets.firstMismatchIndex("([]{})"));
+    }
+
+    @Test
+    void emptyStringReturnsMinusOne() {
+        assertEquals(-1, BalancedBrackets.firstMismatchIndex(""));
+    }
+
+    @Test
+    void closingBracketFirstIsIndexZero() {
+        assertEquals(0, BalancedBrackets.firstMismatchIndex(")"));
+    }
+
+    @Test
+    void wrongClosingBracketIsReported() {
+        assertEquals(1, BalancedBrackets.firstMismatchIndex("(]"));
+    }
+
+    @Test
+    void ignoresOtherCharactersWhenCountingIndex() {
+        assertEquals(3, BalancedBrackets.firstMismatchIndex("a(b]"));
+    }
+
+    @Test
+    void unclosedOpeningBracketIsReported() {
+        assertEquals(0, BalancedBrackets.firstMismatchIndex("((("));
+    }
+
+    @Test
+    void firstUnclosedOpeningBracketInTheMiddle() {
+        assertEquals(1, BalancedBrackets.firstMismatchIndex("a(b"));
+    }
 }
